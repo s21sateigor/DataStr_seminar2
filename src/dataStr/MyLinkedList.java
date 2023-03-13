@@ -72,4 +72,40 @@ public class MyLinkedList<T>
         System.out.println();
     }
 
+    public void remove(int position){
+        //TODO verify if list is empty
+        //TODO verify if position is wrong
+
+        //remove from the beginning
+
+        if(position == 0){
+            first = first.getNext();
+            first.setPrevious(null);
+            elementCounter--;
+        }
+
+        //remove from the end
+        else if (position == elementCounter - 1){
+            last = last.getPrevious();
+            last.setNext(null);
+            elementCounter--;
+        }
+
+        //remove from the middle
+        else {
+            MyNode tempNode = first;
+            for(int i = 0; i < position; i++){
+                tempNode = tempNode.getNext();
+            }
+
+            MyNode tempNodePrevious = tempNode.getPrevious();
+            MyNode tempNodeNext = tempNode.getNext();
+            tempNodePrevious.setNext(tempNodeNext);
+            tempNodeNext.setPrevious(tempNodePrevious);
+            elementCounter--;
+
+        }
+
+    }
+
 }
