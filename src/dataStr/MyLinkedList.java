@@ -63,4 +63,13 @@ public class MyLinkedList<T>
         }
     }
 
+    public void print(){
+        MyNode tempNode = first;
+        while(tempNode != null){
+            System.out.print(tempNode.getElement() + " ");
+            tempNode = tempNode.getNext();
+        }
+        System.out.println();
+    }
+
 }
